@@ -15,7 +15,6 @@ after_success:
 
     - echo "$DOCKER_PASSWORD | docker login -u "$DOCKER_ID" --password-stdin"
 
-
     - docker push magazargaryan/multi-client
     - docker push magazargaryan/multi-nginx
     - docker push magazargaryan/multi-server
