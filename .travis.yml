@@ -13,7 +13,7 @@ after_success:
     - docker build -t magazargaryan/multi-server ./server
     - docker build -t magazargaryan/multi-worker ./worker
 
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin"
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
     - docker push magazargaryan/multi-client
     - docker push magazargaryan/multi-nginx
