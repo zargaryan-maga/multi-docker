@@ -1,0 +1,14 @@
+sudo: required
+services:
+    - docker
+before_install:
+    - docker build -t magazargaryan/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+    - docker run magazargaryan/react-test npm test -- --coverage
+
+after_success:
+    - docker build -t magazargaryan/multi-client ./client
+    - docker build -t magazargaryan/multi-nginx ./nginx
+    - docker build -t magazargaryan/multi-server ./server
+    - docker build -t magazargaryan/multi-worker ./worker
